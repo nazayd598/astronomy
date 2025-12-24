@@ -1,5 +1,7 @@
 FROM node:18-alpine
 WORKDIR /app
+COPY package*.json ./
+RUN npm install
 COPY . .
-# Herhangi bir kütüphane eklemedik, standart fetch kullandık.
-CMD ["node", "main.js"]
+EXPOSE 3000
+CMD ["node", "server.js"]
